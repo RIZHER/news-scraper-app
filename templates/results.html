@@ -74,10 +74,16 @@
     <div class="container">
         <h1>Hasil Pencarian Berita</h1>
 
+        {% if error %}
+            <div class="alert alert-warning text-center" role="alert">
+                {{ error }}
+            </div>
+        {% endif %}
+
         {% if articles %}
             <div class="list-group">
                 {% for article in articles %}
-                    <a href="/detail/{{ loop.index0 }}" class="list-group-item list-group-item-action">
+                    <a href="/detail/{{ article.id }}" class="list-group-item list-group-item-action">
                         {{ article.judul }}
                         <p class="text-muted small">{{ article.url }}</p>
                     </a>
